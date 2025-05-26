@@ -1,0 +1,345 @@
+.calendar-page {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Statistics Cards Container */
+.list-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* Individual Stat Cards */
+.list-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.list-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.list-card:hover::before {
+  left: 100%;
+}
+
+.list-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Student List Card Specific Styling */
+.studentlist-card {
+  border-left: 5px solid #4CAF50;
+}
+
+.studentlist-card:hover {
+  border-left-color: #45a049;
+}
+
+/* Subject List Card Specific Styling */
+.subjectlist-card {
+  border-left: 5px solid #2196F3;
+}
+
+.subjectlist-card:hover {
+  border-left-color: #1976D2;
+}
+
+/* Card Text Styling */
+.list-card h2 {
+  margin: 4px 0 2px 0;
+  color: #333;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.list-card h1 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.list-card .MuiSvgIcon-root {
+  transition: all 0.3s ease;
+}
+
+.list-card:hover .MuiSvgIcon-root {
+  transform: scale(1.1);
+  color: #667eea !important;
+}
+
+/* Calendar Container */
+.calendar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Calendar Header */
+.calendar-header {
+  text-align: center;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+}
+
+.calendar-header h2 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #fff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Calendar Card */
+.calendar-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+/* FullCalendar Customizations */
+.fc {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100% !important;
+}
+
+.fc-toolbar {
+  margin-bottom: 8px !important;
+}
+
+.fc-toolbar-title {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #2c3e50 !important;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fc-button {
+  background: linear-gradient(45deg, #667eea, #764ba2) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  font-weight: 600 !important;
+  font-size: 0.7rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3) !important;
+}
+
+.fc-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+}
+
+.fc-button:disabled {
+  opacity: 0.6 !important;
+  transform: none !important;
+}
+
+.fc-daygrid-day {
+  transition: all 0.2s ease;
+}
+
+.fc-daygrid-day:hover {
+  background-color: rgba(102, 126, 234, 0.1) !important;
+}
+
+.fc-daygrid-day-number {
+  color: #2c3e50;
+  font-weight: 600;
+  padding: 4px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.fc-day-today {
+  background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)) !important;
+  border: 2px solid #667eea !important;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Event Styling */
+.fc-event {
+  background: linear-gradient(45deg, #667eea, #764ba2) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.fc-event:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5) !important;
+}
+
+.fc-event-title {
+  font-weight: 600 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Table Headers */
+.fc-col-header-cell {
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef) !important;
+  border: 1px solid #dee2e6 !important;
+  font-weight: 700 !important;
+  color: #495057 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  font-size: 0.7rem !important;
+  padding: 6px 4px !important;
+}
+
+.fc-daygrid-day-frame {
+  min-height: 35px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .list-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .list-card {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .calendar-header h2 {
+    font-size: 2rem;
+  }
+  
+  .calendar-card {
+    padding: 20px;
+    margin: 0 10px;
+  }
+  
+  .fc-toolbar {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  .fc-toolbar-title {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-page {
+    padding: 10px;
+  }
+  
+  .list-card {
+    padding: 20px;
+  }
+  
+  .list-card h1 {
+    font-size: 2rem;
+  }
+  
+  .calendar-card {
+    padding: 15px;
+  }
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list-card,
+.calendar-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.list-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.calendar-card {
+  animation-delay: 0.2s;
+}
+
+/* Single Page Layout - No Scrolling */
+body {
+  overflow: hidden;
+}
+
+.calendar-page {
+  height: 100vh;
+  overflow: hidden;
+}
